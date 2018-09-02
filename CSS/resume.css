@@ -1,0 +1,157 @@
+#body_css{
+    background-color: #d5f5e3;
+}
+.first .name{
+    text-align: center;
+}
+.first .tag{
+    text-align: center;
+}
+.first .profile-image{
+    border: 0.1px solid  #6b7780 ;
+    display: block;
+    border-radius:  50%;
+    width: 230px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 2px 2px 2px #6b7780;
+}
+.first .profile-image:hover{
+    box-shadow: 5px 5px 5px 5px  #6b7780;
+    opacity: 0.9;
+}
+.skills .container-left{
+    width: 200px;
+    border-radius: 1px;
+    background-color:rgb(128, 128, 128);
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding: 5px;
+    height: 29px;
+    float: left;
+    border: 1px solid rgb(77, 72, 72);
+    
+}
+
+.skills .block{
+    display:flex;
+    align-items: center;
+    justify-content: start;
+}
+.skills .block .container-left .algorithm{
+    width: 80%; 
+    height:29px;
+    background-color: rgb(101, 238, 37);
+}
+.skills .block .container-left .data-structure{
+    width: 70%; 
+    height:29px;
+    background-color: rgb(101, 238, 37);
+}
+.skills .block .container-left .statistics{
+    width: 60%; 
+    height:29px;
+    background-color: rgb(101, 238, 37);
+}
+.skills .block .container-left .cpp{
+    width: 80%; 
+    height:29px;
+    background-color: rgb(101, 238, 37);
+}
+.skills .block .container-left .ml{
+    width: 70%; 
+    height:29px;
+    background-color: rgb(101, 238, 37);
+}
+.skills .block .container-left .python{
+    width: 70%; 
+    height:29px;
+    background-color: rgb(101, 238, 37);
+}
+.skills .block .container-left .matlab{
+    width: 40%; 
+    height:29px;
+    background-color: rgb(101, 238, 37);
+}
+.skills .block .container-left .html{
+    width: 80%; 
+    height:29px;
+    background-color: rgb(101, 238, 37);
+}
+.objective{
+    padding: 2px 10px 2px 15px;
+    background-color:rgb(159, 212, 247); 
+    box-shadow: 2px 2px 2px  #6b7780;
+    margin:15px 10px 15px 10px;
+    padding-left: 43px;
+    border-radius: 30px;
+}
+.objective:hover{
+    box-shadow: 5px 5px 5px 5px  #6b7780;
+    opacity: 0.9;
+}
+.skills{
+    padding: 2px 17px 15px 15px;
+    background-color:rgb(159, 212, 247); 
+    box-shadow: 2px 2px 2px  #6b7780;
+    margin:15px 10px 15px 10px;
+    padding-left: 43px;
+    border-radius: 25px;
+}
+.skills:hover{
+    box-shadow: 5px 5px 5px 5px  #6b7780;
+    opacity: 0.9;
+}
+
+.education{
+    padding: 2px 10px 2px 15px;
+    background-color:rgb(159, 212, 247); 
+    box-shadow: 2px 2px 2px  #6b7780;
+    margin:15px 10px 15px 10px;
+    padding-left: 43px;
+    border-radius: 25px;
+}
+.education:hover{
+    box-shadow: 5px 5px 5px 5px  #6b7780;
+    opacity: 0.9;
+}
+.experience{
+    padding: 2px 10px 2px 15px;
+    background-color:rgb(159, 212, 247); 
+    box-shadow: 2px 2px 2px  #6b7780;
+    margin:15px 10px 15px 10px;
+    padding-left: 43px;
+    border-radius: 25px;
+}
+.experience:hover{
+    box-shadow: 5px 5px 5px 5px  #6b7780;
+    opacity: 0.9;
+}
+.projects{
+    padding: 2px 10px 2px 15px;
+    background-color:rgb(159, 212, 247); 
+    box-shadow: 2px 2px 2px  #6b7780;
+    margin:15px 10px 15px 10px;
+    padding-left: 43px;
+    border-radius: 25px;
+
+}
+.projects:hover{
+    box-shadow: 5px 5px 5px 5px  #6b7780;
+    opacity: 0.9;
+}
+.achievement{
+    padding: 2px 10px 2px 15px;
+    background-color:rgb(159, 212, 247); 
+    box-shadow: 2px 2px 2px  #6b7780;
+    margin:15px 10px 15px 10px;
+    padding-left: 43px;
+    border-radius: 25px;
+}
+.achievement:hover{
+    box-shadow: 5px 5px 5px 5px  #6b7780;
+    opacity: 0.9;
+}
