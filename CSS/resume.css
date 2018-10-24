@@ -102,7 +102,7 @@
 }
 .contact{
     padding: 2px 10px 2px 15px;
-    background-color:rgb(159, 212, 247); 
+    border-style: groove;
     box-shadow: 2px 2px 2px  #6b7780;
     margin:15px 10px 15px 10px;
     padding-left: 43px;
@@ -118,7 +118,7 @@
 }
 .objective{
     padding: 2px 10px 2px 15px;
-    background-color:rgb(159, 212, 247); 
+   
     box-shadow: 2px 2px 2px  #6b7780;
     margin:15px 10px 15px 10px;
     padding-left: 43px;
@@ -143,7 +143,7 @@
 
 .education{
     padding: 2px 10px 2px 15px;
-    background-color:rgb(159, 212, 247); 
+    
     box-shadow: 2px 2px 2px  #6b7780;
     margin:15px 10px 15px 10px;
     padding-left: 43px;
@@ -167,7 +167,7 @@
 }
 .projects{
     padding: 2px 10px 2px 15px;
-    background-color:rgb(159, 212, 247); 
+  
     box-shadow: 2px 2px 2px  #6b7780;
     margin:15px 10px 15px 10px;
     padding-left: 43px;
@@ -180,7 +180,7 @@
 }
 .achievement{
     padding: 2px 10px 2px 15px;
-    background-color:rgb(159, 212, 247); 
+    
     box-shadow: 2px 2px 2px  #6b7780;
     margin:15px 10px 15px 10px;
     padding-left: 43px;
