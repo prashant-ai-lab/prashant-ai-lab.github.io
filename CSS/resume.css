@@ -1,5 +1,5 @@
 .menu{
-    background-color: #41addf;
+    background-color: #236e92;
     padding: 15px 15px 15px 30px;
     height: 20px;
 }
@@ -29,7 +29,7 @@
 .first .profile-image{
     border: 0.1px solid  #6b7780 ;
     display: block;
-    border-radius:  50%;
+    border-radius:  20%;
     width: 230px;
     height: 200px;
     margin-left: auto;
@@ -37,9 +37,7 @@
     box-shadow: 2px 2px 2px #6b7780;
 }
 .first .profile-image:hover{
-    box-shadow: 5px 5px 5px 5px  #6b7780;
-    opacity: 0.9;
-    transform: scale(1.5, 1.5);
+    transform: scale(1.05, 1.05);
 }
 .skills .container-left{
     width: 200px;
