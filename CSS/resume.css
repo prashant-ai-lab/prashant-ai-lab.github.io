@@ -18,10 +18,10 @@
 }
 .first .name{
     text-align: center;
-    color: #41addf; 
+    color: black; 
 }
 .first .name:hover{
-   color:black;
+   color:#074784;
 }
 .first .tag{
     text-align: center;
