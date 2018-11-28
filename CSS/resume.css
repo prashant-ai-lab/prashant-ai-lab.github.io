@@ -2,7 +2,7 @@
     background-color: #236e92;
     padding: 15px 15px 15px 30px;
     height: 20px;
-    background-image:url("images/background.png")
+   
 }
 .menu a {
     color: black;
@@ -15,7 +15,7 @@
      opacity: 0.5;
  }
 #body_css{
-    
+     background-image:url("images/background.png")
 }
 .first .name{
     text-align: center;
