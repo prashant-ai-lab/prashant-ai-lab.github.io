@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://posi2.github.io",
+  site: "https://prashant.github.io",
   output: "static",
   compressHTML: true,
   build: {

@@ -11,46 +11,60 @@ const navItems = [
   { label: "Contact", href: "mailto:prashantchaturvedi2020@gmail.com" },
 ];
 
-const projects = [
-  {
-    title: "Feature Generation from Reviews (NLP)",
-    desc: "Extracted meaningful features from customer reviews using NLP techniques including sentiment analysis, topic modeling, and text classification.",
-    tech: ["Python", "NLTK", "Scikit-learn", "Pandas"],
-    links: { github: "#", demo: "#" },
-  },
-  {
-    title: "Pima Indian Diabetes Classification",
-    desc: "Built classification models to predict diabetes onset using the Pima Indians dataset with feature engineering and model comparison.",
-    tech: ["Python", "Scikit-learn", "Matplotlib", "Jupyter"],
-    links: { github: "#", demo: "#" },
-  },
-  {
-    title: "Website Development",
-    desc: "Designed and developed responsive websites with modern UI/UX principles, focusing on performance and accessibility.",
-    tech: ["HTML", "CSS", "JavaScript", "Astro"],
-    links: { github: "#", demo: "#" },
-  },
-];
+const summary = `AI/ML Engineer with 5+ years of experience building production-grade ML and GenAI systems. Skilled in LLMs, RAG pipelines, computer vision, conversational AI, and scalable ML infrastructure. Proven track record of delivering end-to-end AI solutions with measurable business impact, real-time deployment, and scalable MLOps practices.`;
 
 const experience = [
   {
-    role: "Machine Learning Engineer",
-    company: "Codenscious Technology",
-    period: "June 2018 - July 2018",
-    desc: "Worked on ML model development and deployment pipelines.",
+    role: "Data Scientist II",
+    company: "G2 — Bangalore, India",
+    period: "Dec 2024 – Present",
+    bullets: [
+      "Designed a scalable RAG pipeline using Milvus, implementing embeddings, semantic retrieval, reranking, and optimized chunking strategies for enterprise search.",
+      "Built a review moderation platform combining ML models, rule engines, and agent workflows, increasing moderation automation from 30% to 70%.",
+      "Developed a computer vision-based screenshot validation system to verify real product usage in user-submitted reviews, reducing fraudulent or irrelevant submissions in moderation workflows.",
+      "Implemented image moderation pipelines using computer vision models and product-aware validation techniques to detect policy violations and improve moderation quality.",
+      "Deployed ML services on Kubernetes with ArgoCD CI/CD pipelines, enabling automated deployments, scalable inference workloads, and reliable production rollouts.",
+      "Implemented observability pipelines with feature logging, KPI dashboards, and Slack alerts for production monitoring and debugging.",
+    ],
   },
   {
-    role: "Machine Learning Algorithms",
-    company: "IIT Kharagpur — Winter of Code",
-    period: "Dec 2017",
-    desc: "Implemented various ML algorithms from scratch and contributed to open source.",
+    role: "Data Scientist",
+    company: "Tiger Analytics — Bangalore, India",
+    period: "Mar 2022 – Dec 2024",
+    bullets: [
+      "Developed a conversational AI assistant for pharmaceutical experts, enabling efficient knowledge retrieval and domain-specific question answering.",
+      "Built a RAG system using Qdrant, leveraging embeddings, hybrid retrieval, reranking, and prompt engineering to improve response quality and factual grounding.",
+      "Designed LLM-powered workflows with context-aware retrieval and structured outputs for enterprise-scale GenAI applications.",
+    ],
   },
   {
-    role: "System Security and Exploitation",
-    company: "IIT Kanpur — Summer School of Code",
-    period: "May 2017 - June 2018",
-    desc: "Learned system security fundamentals and exploitation techniques.",
+    role: "Senior Analyst",
+    company: "Tiger Analytics — Bangalore, India",
+    period: "Mar 2022 – Dec 2024",
+    bullets: [
+      "Led an end-to-end ML pipeline for cancer stage prediction using healthcare claims data.",
+      "Applied feature engineering and model selection techniques including Logistic Regression, Random Forest, and XGBoost, achieving AUC of 85%.",
+    ],
   },
+  {
+    role: "Jr. Data Scientist",
+    company: "Tata Consultancy Services — Remote, India",
+    period: "Oct 2020 – Mar 2022",
+    bullets: [
+      "Built an automated question generation system using NLP and deep learning techniques for educational content creation.",
+      "Applied POS tagging, embeddings, and fuzzy matching algorithms to improve question quality, diversity, and contextual relevance.",
+      "Improved content generation efficiency and reduced manual effort in educational workflows.",
+    ],
+  },
+];
+
+const skills = [
+  { category: "Programming", items: ["Python", "C++", "SQL"] },
+  { category: "ML & GenAI", items: ["LLMs", "RAG", "Computer Vision", "NLP", "Deep Learning", "Embeddings", "Semantic Search"] },
+  { category: "Frameworks", items: ["PyTorch", "TensorFlow", "Scikit-learn", "FastAPI", "Flask", "LangChain", "HuggingFace"] },
+  { category: "Systems", items: ["Milvus", "Qdrant", "FAISS", "PySpark", "REST APIs", "Kubernetes"] },
+  { category: "MLOps", items: ["Docker", "ArgoCD", "CI/CD", "Monitoring", "Observability", "Git"] },
+  { category: "Cloud", items: ["AWS"] },
 ];
 ---
 
@@ -59,27 +73,10 @@ const experience = [
   <main class="page">
     <div class="container">
       <h1 class="page-title">Portfolio</h1>
-      <p class="page-subtitle">Projects, experience, and achievements</p>
+      <p class="page-subtitle">AI/ML Engineer — 5+ years building production-grade ML & GenAI systems</p>
 
-      <section class="section">
-        <h2 class="section-heading">Projects</h2>
-        <div class="project-grid">
-          {projects.map((p) => (
-            <article class="project-card">
-              <div class="project-card-top">
-                <h3 class="project-title">{p.title}</h3>
-                <p class="project-desc">{p.desc}</p>
-              </div>
-              <div class="project-tech">
-                {p.tech.map((t) => <span class="tech-tag">{t}</span>)}
-              </div>
-              <div class="project-links">
-                <a href={p.links.github} class="project-link">GitHub →</a>
-                <a href={p.links.demo} class="project-link">Live Demo →</a>
-              </div>
-            </article>
-          ))}
-        </div>
+      <section class="section summary-section">
+        <p class="summary-text">{summary}</p>
       </section>
 
       <section class="section">
@@ -92,7 +89,9 @@ const experience = [
                 <span class="timeline-period">{e.period}</span>
                 <h3 class="timeline-role">{e.role}</h3>
                 <p class="timeline-company">{e.company}</p>
-                <p class="timeline-desc">{e.desc}</p>
+                <ul class="timeline-bullets">
+                  {e.bullets.map((b) => <li>{b}</li>)}
+                </ul>
               </div>
             </div>
           ))}
@@ -100,12 +99,17 @@ const experience = [
       </section>
 
       <section class="section">
-        <h2 class="section-heading">Achievements</h2>
-        <ul class="achievement-list">
-          <li>Google Code Jam, Code Vita, Snackdown & ACM-ICPC Qualifier</li>
-          <li>Problem Setter — organized coding contests in college</li>
-          <li>Head Boy, Debate competition winner, Class Representative in school</li>
-        </ul>
+        <h2 class="section-heading">Skills</h2>
+        <div class="skills-grid">
+          {skills.map((s) => (
+            <div class="skill-category">
+              <h3 class="skill-category-title">{s.category}</h3>
+              <div class="skill-tags">
+                {s.items.map((t) => <span class="skill-tag">{t}</span>)}
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section class="section">
@@ -115,6 +119,15 @@ const experience = [
           <p class="edu-meta">Information Technology — Jabalpur Engineering College</p>
           <p class="edu-year">2016 - 2020</p>
         </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-heading">Achievements</h2>
+        <ul class="achievement-list">
+          <li>ACM ICPC Regional Qualifier</li>
+          <li>Star of the Quarter and Special Achievement Award</li>
+          <li>Filed a patent and published in Applied Clinical Trials</li>
+        </ul>
       </section>
     </div>
   </main>
@@ -135,39 +148,17 @@ const experience = [
     border-bottom: 2px solid var(--gray-200);
   }
 
-  .project-grid { display: grid; gap: 20px; }
-  .project-card {
-    background: var(--white);
+  .summary-section { margin-bottom: 48px; }
+  .summary-text {
+    font-size: 1rem;
+    color: var(--slate);
+    line-height: 1.7;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, var(--gray-50), var(--white));
     border-radius: var(--radius);
-    padding: 24px;
-    box-shadow: var(--shadow-sm);
     border: 1px solid var(--gray-200);
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    transition: box-shadow 0.2s;
+    border-left: 4px solid var(--teal);
   }
-  .project-card:hover { box-shadow: var(--shadow); }
-  .project-card-top { flex: 1; }
-  .project-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
-  .project-desc { font-size: 0.875rem; color: var(--slate); line-height: 1.6; }
-  .project-tech { display: flex; gap: 8px; flex-wrap: wrap; }
-  .tech-tag {
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 4px 10px;
-    background: var(--gray-100);
-    color: var(--navy-light);
-    border-radius: 20px;
-  }
-  .project-links { display: flex; gap: 16px; }
-  .project-link {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--teal);
-    transition: opacity 0.2s;
-  }
-  .project-link:hover { opacity: 0.7; }
 
   .timeline { position: relative; padding-left: 24px; }
   .timeline::before {
@@ -179,7 +170,7 @@ const experience = [
     width: 2px;
     background: var(--gray-200);
   }
-  .timeline-item { position: relative; padding-bottom: 32px; }
+  .timeline-item { position: relative; padding-bottom: 36px; }
   .timeline-dot {
     position: absolute;
     left: -20px;
@@ -198,9 +189,59 @@ const experience = [
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
-  .timeline-role { font-size: 1rem; font-weight: 700; margin: 4px 0 2px; }
-  .timeline-company { font-size: 0.875rem; color: var(--slate); margin-bottom: 6px; }
-  .timeline-desc { font-size: 0.85rem; color: var(--slate-light); line-height: 1.5; }
+  .timeline-role { font-size: 1.05rem; font-weight: 700; margin: 4px 0 2px; }
+  .timeline-company { font-size: 0.85rem; color: var(--slate); margin-bottom: 8px; font-weight: 500; }
+  .timeline-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .timeline-bullets li {
+    font-size: 0.85rem;
+    color: var(--slate-light);
+    line-height: 1.5;
+    padding-left: 16px;
+    position: relative;
+  }
+  .timeline-bullets li::before {
+    content: '•';
+    position: absolute;
+    left: 4px;
+    color: var(--teal);
+    font-weight: 700;
+  }
+
+  .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .skill-category {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 20px;
+    border: 1px solid var(--gray-200);
+  }
+  .skill-category-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--teal);
+    margin-bottom: 12px;
+  }
+  .skill-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .skill-tag {
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 4px 12px;
+    background: var(--gray-100);
+    color: var(--navy-light);
+    border-radius: 20px;
+    border: 1px solid var(--gray-200);
+    transition: all 0.2s;
+  }
+  .skill-tag:hover {
+    border-color: var(--teal);
+    background: rgba(20, 184, 166, 0.05);
+  }
 
   .achievement-list {
     list-style: none;
@@ -209,18 +250,17 @@ const experience = [
     gap: 12px;
   }
   .achievement-list li {
-    padding: 12px 16px;
+    padding: 14px 16px 14px 44px;
     background: var(--white);
     border-radius: var(--radius);
     border: 1px solid var(--gray-200);
     font-size: 0.9rem;
-    padding-left: 40px;
     position: relative;
   }
   .achievement-list li::before {
     content: '🏆';
     position: absolute;
-    left: 12px;
+    left: 14px;
     font-size: 1rem;
   }
 
@@ -237,5 +277,6 @@ const experience = [
   @media (max-width: 640px) {
     .page { padding: 100px 0 20px; }
     .page-title { font-size: 1.75rem; }
+    .skills-grid { grid-template-columns: 1fr; }
   }
 </style>
