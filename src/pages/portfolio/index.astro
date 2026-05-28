@@ -58,6 +58,37 @@ const experience = [
   },
 ];
 
+const internships = [
+  {
+    role: "ML Engineer Intern",
+    company: "FreJun Inc — Madhya Pradesh, India",
+    period: "Jan 2020 – May 2020",
+    bullets: [
+      "Worked on Natural Language Processing projects including keyword extraction and question extraction from interview call transcripts.",
+      "Successfully deployed NLP solutions to production on the company website.",
+    ],
+  },
+  {
+    role: "ML Engineer Intern",
+    company: "Codenscious — Greater Indore Area",
+    period: "May 2019 – Jul 2019",
+    bullets: [
+      "Managed the team under vehicle and person detection project, working directly under the CEO.",
+      "Interacted with clients and delivered the software with good profit margins.",
+      "Worked across different domains including time-series analysis and reinforcement learning.",
+    ],
+  },
+  {
+    role: "ML Engineer Intern",
+    company: "Codenscious — Greater Indore Area",
+    period: "Jun 2018 – Aug 2018",
+    bullets: [
+      "Worked on diabetes classification project spanning backend, frontend, classical AI, and deep learning.",
+      "Gained hands-on experience with advanced ML algorithms such as boosting and applied them to real problem sets.",
+    ],
+  },
+];
+
 const skills = [
   { category: "Programming", items: ["Python", "C++", "SQL"] },
   { category: "ML & GenAI", items: ["LLMs", "RAG", "Computer Vision", "NLP", "Deep Learning", "Embeddings", "Semantic Search"] },
@@ -83,6 +114,25 @@ const skills = [
         <h2 class="section-heading">Experience</h2>
         <div class="timeline">
           {experience.map((e) => (
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-period">{e.period}</span>
+                <h3 class="timeline-role">{e.role}</h3>
+                <p class="timeline-company">{e.company}</p>
+                <ul class="timeline-bullets">
+                  {e.bullets.map((b) => <li>{b}</li>)}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-heading">Internships</h2>
+        <div class="timeline">
+          {internships.map((e) => (
             <div class="timeline-item">
               <div class="timeline-dot"></div>
               <div class="timeline-content">
