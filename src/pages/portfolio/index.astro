@@ -1,0 +1,241 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Blog", href: "/blog" },
+  { label: "YouTube", href: "/youtube" },
+  { label: "Contact", href: "mailto:prashantchaturvedi2020@gmail.com" },
+];
+
+const projects = [
+  {
+    title: "Feature Generation from Reviews (NLP)",
+    desc: "Extracted meaningful features from customer reviews using NLP techniques including sentiment analysis, topic modeling, and text classification.",
+    tech: ["Python", "NLTK", "Scikit-learn", "Pandas"],
+    links: { github: "#", demo: "#" },
+  },
+  {
+    title: "Pima Indian Diabetes Classification",
+    desc: "Built classification models to predict diabetes onset using the Pima Indians dataset with feature engineering and model comparison.",
+    tech: ["Python", "Scikit-learn", "Matplotlib", "Jupyter"],
+    links: { github: "#", demo: "#" },
+  },
+  {
+    title: "Website Development",
+    desc: "Designed and developed responsive websites with modern UI/UX principles, focusing on performance and accessibility.",
+    tech: ["HTML", "CSS", "JavaScript", "Astro"],
+    links: { github: "#", demo: "#" },
+  },
+];
+
+const experience = [
+  {
+    role: "Machine Learning Engineer",
+    company: "Codenscious Technology",
+    period: "June 2018 - July 2018",
+    desc: "Worked on ML model development and deployment pipelines.",
+  },
+  {
+    role: "Machine Learning Algorithms",
+    company: "IIT Kharagpur — Winter of Code",
+    period: "Dec 2017",
+    desc: "Implemented various ML algorithms from scratch and contributed to open source.",
+  },
+  {
+    role: "System Security and Exploitation",
+    company: "IIT Kanpur — Summer School of Code",
+    period: "May 2017 - June 2018",
+    desc: "Learned system security fundamentals and exploitation techniques.",
+  },
+];
+---
+
+<Layout title="Portfolio — Prashant Chaturvedi">
+  <Nav items={navItems} />
+  <main class="page">
+    <div class="container">
+      <h1 class="page-title">Portfolio</h1>
+      <p class="page-subtitle">Projects, experience, and achievements</p>
+
+      <section class="section">
+        <h2 class="section-heading">Projects</h2>
+        <div class="project-grid">
+          {projects.map((p) => (
+            <article class="project-card">
+              <div class="project-card-top">
+                <h3 class="project-title">{p.title}</h3>
+                <p class="project-desc">{p.desc}</p>
+              </div>
+              <div class="project-tech">
+                {p.tech.map((t) => <span class="tech-tag">{t}</span>)}
+              </div>
+              <div class="project-links">
+                <a href={p.links.github} class="project-link">GitHub →</a>
+                <a href={p.links.demo} class="project-link">Live Demo →</a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-heading">Experience</h2>
+        <div class="timeline">
+          {experience.map((e) => (
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-period">{e.period}</span>
+                <h3 class="timeline-role">{e.role}</h3>
+                <p class="timeline-company">{e.company}</p>
+                <p class="timeline-desc">{e.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-heading">Achievements</h2>
+        <ul class="achievement-list">
+          <li>Google Code Jam, Code Vita, Snackdown & ACM-ICPC Qualifier</li>
+          <li>Problem Setter — organized coding contests in college</li>
+          <li>Head Boy, Debate competition winner, Class Representative in school</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2 class="section-heading">Education</h2>
+        <div class="edu-card">
+          <h3>Bachelor of Engineering (B.E.)</h3>
+          <p class="edu-meta">Information Technology — Jabalpur Engineering College</p>
+          <p class="edu-year">2016 - 2020</p>
+        </div>
+      </section>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page { padding: 120px 0 40px; }
+  .page-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; }
+  .page-subtitle { color: var(--slate); font-size: 1.05rem; margin-bottom: 48px; }
+  .section { margin-bottom: 56px; }
+  .section-heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 24px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--gray-200);
+  }
+
+  .project-grid { display: grid; gap: 20px; }
+  .project-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: box-shadow 0.2s;
+  }
+  .project-card:hover { box-shadow: var(--shadow); }
+  .project-card-top { flex: 1; }
+  .project-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+  .project-desc { font-size: 0.875rem; color: var(--slate); line-height: 1.6; }
+  .project-tech { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tech-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    background: var(--gray-100);
+    color: var(--navy-light);
+    border-radius: 20px;
+  }
+  .project-links { display: flex; gap: 16px; }
+  .project-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--teal);
+    transition: opacity 0.2s;
+  }
+  .project-link:hover { opacity: 0.7; }
+
+  .timeline { position: relative; padding-left: 24px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: var(--gray-200);
+  }
+  .timeline-item { position: relative; padding-bottom: 32px; }
+  .timeline-dot {
+    position: absolute;
+    left: -20px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--teal);
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 2px var(--teal);
+  }
+  .timeline-period {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .timeline-role { font-size: 1rem; font-weight: 700; margin: 4px 0 2px; }
+  .timeline-company { font-size: 0.875rem; color: var(--slate); margin-bottom: 6px; }
+  .timeline-desc { font-size: 0.85rem; color: var(--slate-light); line-height: 1.5; }
+
+  .achievement-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .achievement-list li {
+    padding: 12px 16px;
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 1px solid var(--gray-200);
+    font-size: 0.9rem;
+    padding-left: 40px;
+    position: relative;
+  }
+  .achievement-list li::before {
+    content: '🏆';
+    position: absolute;
+    left: 12px;
+    font-size: 1rem;
+  }
+
+  .edu-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 24px;
+    border: 1px solid var(--gray-200);
+  }
+  .edu-card h3 { font-size: 1.05rem; font-weight: 700; }
+  .edu-meta { font-size: 0.875rem; color: var(--slate); margin: 4px 0; }
+  .edu-year { font-size: 0.8rem; color: var(--teal); font-weight: 600; }
+
+  @media (max-width: 640px) {
+    .page { padding: 100px 0 20px; }
+    .page-title { font-size: 1.75rem; }
+  }
+</style>

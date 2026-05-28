@@ -1,0 +1,97 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Blog", href: "/blog" },
+  { label: "YouTube", href: "/youtube" },
+  { label: "Contact", href: "mailto:prashantchaturvedi2020@gmail.com" },
+];
+---
+
+<Layout title="Blog — Prashant Chaturvedi">
+  <Nav items={navItems} />
+  <main class="page">
+    <div class="container">
+      <h1 class="page-title">Blog</h1>
+      <p class="page-subtitle">Thoughts on programming, data science, and technology</p>
+
+      <div class="empty-state">
+        <span class="empty-icon">✍️</span>
+        <h2>Coming Soon</h2>
+        <p>I'm working on my first blog post. Stay tuned for articles on machine learning, web development, and programming challenges.</p>
+        <a href="/" class="back-link">← Back to Home</a>
+      </div>
+
+      <div class="preview-list">
+        <article class="preview-card">
+          <div class="preview-tag">Coming</div>
+          <h3>Getting Started with Machine Learning</h3>
+          <p>A practical guide to starting your ML journey with hands-on examples.</p>
+        </article>
+        <article class="preview-card">
+          <div class="preview-tag">Coming</div>
+          <h3>Building with Astro</h3>
+          <p>Why I chose Astro for my portfolio and how it compares to other frameworks.</p>
+        </article>
+        <article class="preview-card">
+          <div class="preview-tag">Coming</div>
+          <h3>NLP Feature Engineering</h3>
+          <p>Techniques for extracting features from text data for machine learning models.</p>
+        </article>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page { padding: 120px 0 40px; min-height: 80vh; }
+  .page-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; }
+  .page-subtitle { color: var(--slate); font-size: 1.05rem; margin-bottom: 48px; }
+
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--gray-200);
+    margin-bottom: 40px;
+  }
+  .empty-icon { font-size: 3rem; display: block; margin-bottom: 16px; }
+  .empty-state h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
+  .empty-state p { color: var(--slate); max-width: 400px; margin: 0 auto 24px; }
+  .back-link { color: var(--teal); font-weight: 600; font-size: 0.9rem; }
+  .back-link:hover { opacity: 0.7; }
+
+  .preview-list { display: grid; gap: 16px; }
+  .preview-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    border: 1px solid var(--gray-200);
+    transition: border-color 0.2s;
+  }
+  .preview-card:hover { border-color: var(--teal); }
+  .preview-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--slate);
+    background: var(--gray-100);
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+  .preview-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
+  .preview-card p { font-size: 0.85rem; color: var(--slate); }
+
+  @media (max-width: 640px) {
+    .page-title { font-size: 1.75rem; }
+  }
+</style>

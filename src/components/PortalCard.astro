@@ -1,0 +1,71 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  href: string;
+  icon: string;
+  gradient: string;
+}
+const { title, description, href, icon, gradient } = Astro.props;
+---
+
+<a href={href} class="portal-card" style={`--gradient: ${gradient}`}>
+  <div class="portal-icon">{icon}</div>
+  <h3 class="portal-title">{title}</h3>
+  <p class="portal-desc">{description}</p>
+  <span class="portal-arrow">→</span>
+</a>
+
+<style>
+  .portal-card {
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--gray-200);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  .portal-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .portal-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-xl);
+    border-color: transparent;
+  }
+  .portal-card:hover::before { opacity: 1; }
+
+  .portal-icon { font-size: 2.5rem; margin-bottom: 16px; }
+  .portal-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .portal-desc {
+    font-size: 0.875rem;
+    color: var(--slate);
+    line-height: 1.6;
+    flex: 1;
+  }
+  .portal-arrow {
+    margin-top: 16px;
+    font-size: 1.25rem;
+    color: var(--teal);
+    transition: transform 0.2s;
+    font-weight: 600;
+  }
+  .portal-card:hover .portal-arrow { transform: translateX(6px); }
+</style>

@@ -1,0 +1,159 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import PortalCard from "../components/PortalCard.astro";
+import Footer from "../components/Footer.astro";
+
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Blog", href: "/blog" },
+  { label: "YouTube", href: "/youtube" },
+  { label: "Contact", href: "mailto:prashantchaturvedi2020@gmail.com" },
+];
+---
+
+<Layout title="Prashant Chaturvedi — Data Science & Programming">
+  <Nav items={navItems} />
+  <Hero
+    name="Prashant Chaturvedi"
+    tagline="Data Science and Programming Enthusiast. I love solving challenging problems and building real-world projects."
+    image="/images/profile_pics.jpg"
+  />
+
+  <section id="portals" class="portals-section">
+    <div class="container">
+      <h2 class="section-title fade-in">Explore</h2>
+      <p class="section-subtitle fade-in">Choose your path to learn more about my work</p>
+      <div class="portals-grid">
+        <div class="fade-in" style="animation-delay: 0.1s">
+          <PortalCard
+            title="Portfolio"
+            description="Projects in Data Science, NLP, Machine Learning, and Web Development"
+            href="/portfolio"
+            icon="💻"
+            gradient="linear-gradient(135deg, #14b8a6, #0d9488)"
+          />
+        </div>
+        <div class="fade-in" style="animation-delay: 0.2s">
+          <PortalCard
+            title="Blog"
+            description="Thoughts on programming, data science, and technology"
+            href="/blog"
+            icon="✍️"
+            gradient="linear-gradient(135deg, #3b82f6, #2563eb)"
+          />
+        </div>
+        <div class="fade-in" style="animation-delay: 0.3s">
+          <PortalCard
+            title="YouTube"
+            description="Coding tutorials, tech talks, and project walkthroughs"
+            href="/youtube"
+            icon="🎥"
+            gradient="linear-gradient(135deg, #ef4444, #dc2626)"
+          />
+        </div>
+        <div class="fade-in" style="animation-delay: 0.4s">
+          <PortalCard
+            title="GitHub"
+            description="Open source contributions and personal projects"
+            href="https://github.com/prashant-chaturvedi"
+            icon="🐙"
+            gradient="linear-gradient(135deg, #6366f1, #4f46e5)"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="social-proof">
+    <div class="container">
+      <div class="proof-grid">
+        <div class="proof-item">
+          <span class="proof-number">3+</span>
+          <span class="proof-label">Years Experience</span>
+        </div>
+        <div class="proof-item">
+          <span class="proof-number">10+</span>
+          <span class="proof-label">Projects</span>
+        </div>
+        <div class="proof-item">
+          <span class="proof-number">5+</span>
+          <span class="proof-label">Tech Stacks</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <Footer />
+</Layout>
+
+<style>
+  .portals-section {
+    padding: 100px 0 60px;
+    background: var(--gray-50);
+  }
+  .section-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .section-subtitle {
+    text-align: center;
+    color: var(--slate);
+    font-size: 1rem;
+    margin-bottom: 48px;
+  }
+  .portals-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  @media (max-width: 640px) {
+    .portals-grid {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+    }
+  }
+
+  .social-proof {
+    background: var(--white);
+    padding: 48px 0;
+    border-top: 1px solid var(--gray-200);
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .proof-grid {
+    display: flex;
+    justify-content: center;
+    gap: 64px;
+  }
+  .proof-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .proof-number {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--teal), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .proof-label {
+    font-size: 0.8rem;
+    color: var(--slate);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  @media (max-width: 640px) {
+    .proof-grid { gap: 32px; flex-wrap: wrap; }
+  }
+</style>
