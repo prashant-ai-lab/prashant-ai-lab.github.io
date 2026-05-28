@@ -8,6 +8,7 @@ import Footer from "../components/Footer.astro";
 const navItems = [
   { label: "Home", href: "/" },
   { label: "Portfolio", href: "/portfolio" },
+  { label: "Projects", href: "/projects" },
   { label: "Blog", href: "/blog" },
   { label: "YouTube", href: "/youtube" },
   { label: "Contact", href: "mailto:prashantchaturvedi2020@gmail.com" },
@@ -30,13 +31,22 @@ const navItems = [
         <div class="fade-in" style="animation-delay: 0.1s">
           <PortalCard
             title="Portfolio"
-            description="Projects in Data Science, NLP, Machine Learning, and Web Development"
+            description="Experience, skills, education and achievements"
             href="/portfolio"
             icon="💻"
             gradient="linear-gradient(135deg, #14b8a6, #0d9488)"
           />
         </div>
         <div class="fade-in" style="animation-delay: 0.2s">
+          <PortalCard
+            title="Projects"
+            description="Real-world ML & AI systems built across companies"
+            href="/projects"
+            icon="⚡"
+            gradient="linear-gradient(135deg, #f59e0b, #d97706)"
+          />
+        </div>
+        <div class="fade-in" style="animation-delay: 0.3s">
           <PortalCard
             title="Blog"
             description="Thoughts on programming, data science, and technology"
@@ -45,7 +55,7 @@ const navItems = [
             gradient="linear-gradient(135deg, #3b82f6, #2563eb)"
           />
         </div>
-        <div class="fade-in" style="animation-delay: 0.3s">
+        <div class="fade-in" style="animation-delay: 0.4s">
           <PortalCard
             title="YouTube"
             description="Coding tutorials, tech talks, and project walkthroughs"
@@ -54,7 +64,7 @@ const navItems = [
             gradient="linear-gradient(135deg, #ef4444, #dc2626)"
           />
         </div>
-        <div class="fade-in" style="animation-delay: 0.4s">
+        <div class="fade-in" style="animation-delay: 0.5s">
           <PortalCard
             title="GitHub"
             description="Open source contributions and personal projects"
