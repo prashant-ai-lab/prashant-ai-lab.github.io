@@ -1,0 +1,19 @@
+README.md
+  s_a007d9d011534b::t_b9e41755b5bc40 1-17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "2f50d4bcf76bc17b6630995f14b11120642b23d5",
+  "prompts": {},
+  "sessions": {
+    "s_a007d9d011534b": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_139b9f6b9ffexurP1iFvEm8r7r",
+        "model": "deepseek-v4-flash-free"
+      },
+      "human_author": "prashant <pchaturvedi@g2.com>"
+    }
+  }
+}
