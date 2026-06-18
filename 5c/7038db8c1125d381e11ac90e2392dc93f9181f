@@ -1,0 +1,21 @@
+src/pages/youtube/index.astro
+  s_7719336dd0b0a4::t_30692bb80cc8fb 31
+src/components/Footer.astro
+  s_7719336dd0b0a4::t_0f3777062acf92 14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "5c7038db8c1125d381e11ac90e2392dc93f9181f",
+  "prompts": {},
+  "sessions": {
+    "s_7719336dd0b0a4": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_124687400ffe70p0e6q5gwI2lX",
+        "model": "deepseek-v4-flash-free"
+      },
+      "human_author": "prashant-ai-lab <prashantchaturvedi2020@gmail.com>"
+    }
+  }
+}
