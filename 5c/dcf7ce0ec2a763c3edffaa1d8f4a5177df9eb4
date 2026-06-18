@@ -1,0 +1,23 @@
+src/pages/blog/path-to-becoming-a-data-scientist.astro
+  s_7719336dd0b0a4::t_61124b291b7676 1-304
+src/pages/blog/index.astro
+  s_7719336dd0b0a4::t_e978a064b8ea5b 96
+  s_7719336dd0b0a4::t_2fd76d6e362ff9 24-29
+  s_7719336dd0b0a4::t_e395fc136e4237 77-79
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.2",
+  "base_commit_sha": "5cdcf7ce0ec2a763c3edffaa1d8f4a5177df9eb4",
+  "prompts": {},
+  "sessions": {
+    "s_7719336dd0b0a4": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_124687400ffe70p0e6q5gwI2lX",
+        "model": "deepseek-v4-flash-free"
+      },
+      "human_author": "prashant-ai-lab <prashantchaturvedi2020@gmail.com>"
+    }
+  }
+}
