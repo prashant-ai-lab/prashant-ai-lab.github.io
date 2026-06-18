@@ -1,0 +1,304 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Projects", href: "/projects" },
+  { label: "Blog", href: "/blog" },
+  { label: "YouTube", href: "/youtube" },
+  { label: "Contact", href: "mailto:prashantchaturvedi2020@gmail.com" },
+];
+---
+
+<Layout title="Path to Becoming a Data Scientist — Prashant Chaturvedi">
+  <Nav items={navItems} />
+  <main class="page">
+    <article class="container blog-post">
+      <a href="/blog" class="back-link">&larr; Back to Blog</a>
+      <h1 class="post-title">The Path to Becoming a Data Scientist</h1>
+      <div class="post-meta">
+        <time datetime="2026-06-18">June 18, 2026</time>
+        <span class="reading-time">12 min read</span>
+      </div>
+
+      <div class="toc">
+        <h3>Table of Contents</h3>
+        <ol>
+          <li><a href="#foundations">Foundations: Programming &amp; Math</a></li>
+          <li><a href="#ml-basics">Machine Learning Basics</a></li>
+          <li><a href="#deep-learning">Deep Learning</a></li>
+          <li><a href="#llm-transformers">LLMs &amp; Transformers</a></li>
+          <li><a href="#mlops">MLOps: Git, Docker &amp; Deployment</a></li>
+          <li><a href="#roadmap">Putting It All Together</a></li>
+        </ol>
+      </div>
+
+      <section id="foundations">
+        <h2>1. Foundations: Programming &amp; Math</h2>
+        <p>Every data scientist needs a strong foundation. Start here:</p>
+        <h3>Python (Non-Negotiable)</h3>
+        <p>Python is the lingua franca of data science. Master these libraries:</p>
+        <ul>
+          <li><strong>NumPy</strong> — numerical computing, array operations, linear algebra</li>
+          <li><strong>Pandas</strong> — data manipulation, cleaning, and exploratory analysis</li>
+          <li><strong>Matplotlib &amp; Seaborn</strong> — data visualization</li>
+          <li><strong>Scikit-learn</strong> — classical ML algorithms and pipelines</li>
+        </ul>
+        <h3>Mathematics &amp; Statistics</h3>
+        <ul>
+          <li><strong>Linear Algebra</strong> — vectors, matrices, eigenvalues, SVD</li>
+          <li><strong>Calculus</strong> — derivatives, gradients, optimization</li>
+          <li><strong>Probability</strong> — distributions, Bayes theorem, expectation</li>
+          <li><strong>Statistics</strong> — hypothesis testing, confidence intervals, regression</li>
+        </ul>
+      </section>
+
+      <section id="ml-basics">
+        <h2>2. Machine Learning Basics</h2>
+        <p>Understand the core paradigms of machine learning:</p>
+        <h3>Supervised Learning</h3>
+        <ul>
+          <li><strong>Regression</strong> — Linear Regression, Ridge, Lasso</li>
+          <li><strong>Classification</strong> — Logistic Regression, Decision Trees, Random Forest, SVM</li>
+          <li><strong>Ensemble Methods</strong> — Bagging, Boosting (XGBoost, LightGBM, CatBoost)</li>
+        </ul>
+        <h3>Unsupervised Learning</h3>
+        <ul>
+          <li><strong>Clustering</strong> — K-Means, DBSCAN, Hierarchical Clustering</li>
+          <li><strong>Dimensionality Reduction</strong> — PCA, t-SNE, UMAP</li>
+          <li><strong>Anomaly Detection</strong> — Isolation Forest, LOF</li>
+        </ul>
+        <h3>Model Evaluation</h3>
+        <p>Learn how to validate models properly: train/test splits, cross-validation, confusion matrices, precision/recall, ROC curves, and bias-variance tradeoff.</p>
+      </section>
+
+      <section id="deep-learning">
+        <h2>3. Deep Learning</h2>
+        <p>Deep learning extends ML with neural networks capable of learning hierarchical representations.</p>
+        <h3>Neural Network Fundamentals</h3>
+        <ul>
+          <li>Perceptron &amp; Multi-Layer Perceptrons (MLPs)</li>
+          <li>Activation Functions — ReLU, Sigmoid, Tanh, Softmax</li>
+          <li>Backpropagation &amp; Gradient Descent</li>
+          <li>Regularization — Dropout, Batch Normalization, L1/L2</li>
+        </ul>
+        <h3>Frameworks</h3>
+        <ul>
+          <li><strong>PyTorch</strong> — dynamic computation graphs, research-friendly</li>
+          <li><strong>TensorFlow/Keras</strong> — production-ready, broad ecosystem</li>
+        </ul>
+        <h3>Key Architectures</h3>
+        <ul>
+          <li><strong>CNNs</strong> — for images, spatial data</li>
+          <li><strong>RNNs/LSTMs/GRUs</strong> — for sequences, time series</li>
+          <li><strong>Autoencoders</strong> — for compression, anomaly detection</li>
+          <li><strong>GANs</strong> — for generative modeling</li>
+        </ul>
+      </section>
+
+      <section id="llm-transformers">
+        <h2>4. LLMs &amp; Transformers</h2>
+        <p>The Transformer architecture revolutionized NLP and beyond. Understanding it is essential for any modern data scientist.</p>
+        <h3>The Transformer Architecture</h3>
+        <ul>
+          <li><strong>Self-Attention</strong> — how each token attends to every other token</li>
+          <li><strong>Multi-Head Attention</strong> — parallel attention heads capture different relationships</li>
+          <li><strong>Positional Encoding</strong> — injecting sequence order information</li>
+          <li><strong>Encoder-Decoder Structure</strong> — the original Transformer layout</li>
+        </ul>
+        <h3>Key Papers to Know</h3>
+        <ul>
+          <li><em>"Attention Is All You Need"</em> (Vaswani et al., 2017) — the original Transformer</li>
+          <li><em>"BERT: Pre-training of Deep Bidirectional Transformers"</em> (Devlin et al., 2019)</li>
+          <li><em>"Language Models are Few-Shot Learners"</em> (GPT-3, Brown et al., 2020)</li>
+          <li><em>"Training Language Models to Follow Instructions"</em> (InstructGPT, 2022)</li>
+        </ul>
+        <h3>Modern LLM Concepts</h3>
+        <ul>
+          <li><strong>Pre-training &amp; Fine-tuning</strong> — transfer learning at scale</li>
+          <li><strong>RLHF</strong> — Reinforcement Learning from Human Feedback</li>
+          <li><strong>RAG</strong> — Retrieval-Augmented Generation for grounding LLMs in external data</li>
+          <li><strong>Prompt Engineering</strong> — chain-of-thought, few-shot, system prompts</li>
+          <li><strong>Quantization</strong> — making LLMs smaller and faster (GGUF, GPTQ, AWQ)</li>
+        </ul>
+        <h3>Tools &amp; Libraries</h3>
+        <ul>
+          <li><strong>HuggingFace Transformers</strong> — the standard library for working with LLMs</li>
+          <li><strong>LangChain / LlamaIndex</strong> — frameworks for building LLM-powered applications</li>
+          <li><strong>vLLM / Ollama</strong> — serving and running LLMs locally</li>
+          <li><strong>Weights &amp; Biases / MLflow</strong> — experiment tracking</li>
+        </ul>
+      </section>
+
+      <section id="mlops">
+        <h2>5. MLOps: Git, Docker &amp; Deployment</h2>
+        <p>A data scientist who can ship models is worth ten who can't. Engineering skills separate junior from senior practitioners.</p>
+        <h3>Git &amp; Version Control</h3>
+        <ul>
+          <li>Commits, branches, merging, rebasing</li>
+          <li>GitHub/GitLab workflows and pull requests</li>
+          <li>DVC (Data Version Control) for tracking datasets and models</li>
+        </ul>
+        <h3>Docker &amp; Containerization</h3>
+        <ul>
+          <li>Writing Dockerfiles for ML applications</li>
+          <li>Docker Compose for multi-service setups (app + DB + model server)</li>
+          <li>Container best practices: slim images, multi-stage builds</li>
+        </ul>
+        <h3>CI/CD &amp; Orchestration</h3>
+        <ul>
+          <li><strong>GitHub Actions / GitLab CI</strong> — automating tests and deployments</li>
+          <li><strong>Kubernetes</strong> — container orchestration at scale</li>
+          <li><strong>ArgoCD / Flux</strong> — GitOps for continuous delivery</li>
+        </ul>
+        <h3>Model Serving &amp; APIs</h3>
+        <ul>
+          <li><strong>FastAPI / Flask</strong> — building REST APIs for models</li>
+          <li><strong>BentoML / MLflow Serving</strong> — model serving frameworks</li>
+          <li><strong>Monitoring</strong> — data drift, model drift, performance alerts</li>
+        </ul>
+      </section>
+
+      <section id="roadmap">
+        <h2>6. Putting It All Together</h2>
+        <p>Here's a phased roadmap I recommend:</p>
+        <div class="roadmap">
+          <div class="phase">
+            <span class="phase-num">Phase 1</span>
+            <h3>Fundamentals (1-3 months)</h3>
+            <p>Python, Pandas, NumPy, SQL, basic statistics</p>
+          </div>
+          <div class="phase">
+            <span class="phase-num">Phase 2</span>
+            <h3>Machine Learning (2-4 months)</h3>
+            <p>Scikit-learn, supervised/unsupervised learning, model evaluation, XGBoost</p>
+          </div>
+          <div class="phase">
+            <span class="phase-num">Phase 3</span>
+            <h3>Deep Learning (2-4 months)</h3>
+            <p>PyTorch, CNNs, RNNs, training at scale, GPU computing</p>
+          </div>
+          <div class="phase">
+            <span class="phase-num">Phase 4</span>
+            <h3>LLMs &amp; Transformers (1-2 months)</h3>
+            <p>Transformer architecture, HuggingFace, RAG, prompt engineering</p>
+          </div>
+          <div class="phase">
+            <span class="phase-num">Phase 5</span>
+            <h3>MLOps &amp; Deployment (1-2 months)</h3>
+            <p>Git, Docker, FastAPI, CI/CD, cloud deployment (AWS/GCP/Azure)</p>
+          </div>
+          <div class="phase">
+            <span class="phase-num">Phase 6</span>
+            <h3>Specialization (ongoing)</h3>
+            <p>Choose your path: NLP, Computer Vision, MLOps, or Research</p>
+          </div>
+        </div>
+        <p class="summary">The key is consistent practice. Build projects at each phase, contribute to open source, and never stop learning. The field evolves fast — staying curious is your biggest asset.</p>
+      </section>
+
+    </article>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page { padding: 120px 0 40px; min-height: 80vh; }
+  .blog-post { max-width: 720px; }
+  .back-link {
+    display: inline-block;
+    color: var(--teal);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+  }
+  .back-link:hover { opacity: 0.7; }
+  .post-title {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .post-meta {
+    display: flex;
+    gap: 16px;
+    color: var(--slate);
+    font-size: 0.85rem;
+    margin-bottom: 40px;
+  }
+  .reading-time {
+    color: var(--teal);
+    font-weight: 600;
+  }
+  .toc {
+    background: var(--gray-100);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 40px;
+    border: 1px solid var(--gray-200);
+  }
+  .toc h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--navy-light); }
+  .toc ol { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+  .toc li { font-size: 0.85rem; }
+  .toc a { color: var(--teal); font-weight: 500; }
+  .toc a:hover { text-decoration: underline; }
+  section { margin-bottom: 48px; }
+  section h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--gray-200);
+  }
+  section h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+  section p { font-size: 0.92rem; line-height: 1.7; color: var(--slate); margin-bottom: 16px; }
+  section ul { margin: 0 0 16px 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px; }
+  section li { font-size: 0.92rem; line-height: 1.6; color: var(--slate); }
+  section li strong { color: var(--navy); }
+  section em { color: var(--navy-light); }
+  .roadmap { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+  .phase {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    transition: border-color 0.2s;
+  }
+  .phase:hover { border-color: var(--teal); }
+  .phase-num {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--teal);
+    background: rgba(20,184,166,0.08);
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+  }
+  .phase h3 { font-size: 1rem; font-weight: 700; margin: 0 0 4px 0; }
+  .phase p { font-size: 0.85rem; color: var(--slate); margin: 0; }
+  .summary {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--slate);
+    background: linear-gradient(135deg, #f0fdfa, #fff);
+    border: 1px solid #99f6e4;
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-top: 24px;
+  }
+
+  @media (max-width: 640px) {
+    .post-title { font-size: 1.5rem; }
+  }
+</style>

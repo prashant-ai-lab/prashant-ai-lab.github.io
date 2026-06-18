@@ -20,14 +20,13 @@ const navItems = [
       <h1 class="page-title">Blog</h1>
       <p class="page-subtitle">Thoughts on programming, data science, and technology</p>
 
-      <div class="empty-state">
-        <span class="empty-icon">✍️</span>
-        <h2>Coming Soon</h2>
-        <p>I'm working on my first blog post. Stay tuned for articles on machine learning, web development, and programming challenges.</p>
-        <a href="/" class="back-link">← Back to Home</a>
-      </div>
-
       <div class="preview-list">
+        <a href="/blog/path-to-becoming-a-data-scientist" class="preview-card">
+          <div class="preview-tag" style="color: var(--teal); background: rgba(20,184,166,0.08);">New</div>
+          <h3>The Path to Becoming a Data Scientist</h3>
+          <p>Machine learning basics, deep learning, Transformers, LLMs, Git, Docker — a complete roadmap for aspiring data scientists.</p>
+          <div class="preview-meta">June 18, 2026 · 12 min read</div>
+        </a>
         <article class="preview-card">
           <div class="preview-tag">Coming</div>
           <h3>Getting Started with Machine Learning</h3>
@@ -75,6 +74,9 @@ const navItems = [
     padding: 20px 24px;
     border: 1px solid var(--gray-200);
     transition: border-color 0.2s;
+    display: block;
+    text-decoration: none;
+    color: inherit;
   }
   .preview-card:hover { border-color: var(--teal); }
   .preview-tag {
@@ -91,6 +93,7 @@ const navItems = [
   }
   .preview-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
   .preview-card p { font-size: 0.85rem; color: var(--slate); }
+  .preview-meta { font-size: 0.78rem; color: var(--teal); font-weight: 600; margin-top: 8px; }
 
   @media (max-width: 640px) {
     .page-title { font-size: 1.75rem; }
