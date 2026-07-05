@@ -1,0 +1,154 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+import { getRelatedPosts, formatDate } from "../../data/blog";
+
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Projects", href: "/projects" },
+  { label: "Blog", href: "/blog" },
+  { label: "YouTube", href: "/youtube" },
+  { label: "Contact", href: "mailto:prashantchaturvedi2020@gmail.com" },
+];
+
+const relatedPosts = getRelatedPosts("building-with-astro");
+---
+
+<Layout title="Building with Astro — Prashant Chaturvedi">
+  <Nav items={navItems} />
+  <main class="page">
+    <article class="container blog-post">
+      <a href="/blog" class="back-link">&larr; Back to Blog</a>
+      <h1 class="post-title">Building with Astro</h1>
+      <div class="post-meta">
+        <time datetime="2026-07-05">July 5, 2026</time>
+        <span class="reading-time">8 min read</span>
+      </div>
+
+      <div class="toc">
+        <h3>Table of Contents</h3>
+        <ol>
+          <li><a href="#why-astro">Why I Chose Astro</a></li>
+          <li><a href="#islands">The Islands Architecture</a></li>
+          <li><a href="#project-structure">Project Structure</a></li>
+          <li><a href="#components">Components &amp; Layouts</a></li>
+          <li><a href="#comparison">How It Compares</a></li>
+          <li><a href="#takeaways">Takeaways</a></li>
+        </ol>
+      </div>
+
+      <section id="why-astro" class="blog-section">
+        <h2>1. Why I Chose Astro</h2>
+        <p>When I set out to rebuild this site, I wanted something fast, simple, and content-first. Astro checked every box. It ships zero JavaScript by default, so pages load nearly instantly, yet it still lets me reach for React, Vue, or Svelte when I actually need interactivity.</p>
+        <ul>
+          <li><strong>Zero JS by default</strong> — static HTML is sent to the browser unless you opt in to hydration</li>
+          <li><strong>Content-focused</strong> — built for blogs, docs, and portfolios, not heavy SPAs</li>
+          <li><strong>Framework-agnostic</strong> — mix React, Vue, Svelte, Solid, and plain HTML in one project</li>
+          <li><strong>Great DX</strong> — Vite-powered dev server, fast HMR, and TypeScript out of the box</li>
+        </ul>
+      </section>
+
+      <section id="islands" class="blog-section">
+        <h2>2. The Islands Architecture</h2>
+        <p>Astro's signature feature is the <em>Islands Architecture</em>. Instead of hydrating an entire page, you render mostly static HTML and hydrate only the small interactive "islands" that need it.</p>
+        <h3>Client Directives</h3>
+        <ul>
+          <li><strong>client:load</strong> — hydrate the component as soon as the page loads</li>
+          <li><strong>client:idle</strong> — hydrate when the browser is idle</li>
+          <li><strong>client:visible</strong> — hydrate when the component scrolls into view</li>
+          <li><strong>client:media</strong> — hydrate only when a media query matches</li>
+        </ul>
+        <p>This means a page can be 95% static HTML with a single interactive widget, shipping a fraction of the JavaScript a traditional SPA would.</p>
+      </section>
+
+      <section id="project-structure" class="blog-section">
+        <h2>3. Project Structure</h2>
+        <p>Astro projects follow a clean, predictable convention. Here's the layout this site uses:</p>
+        <ul>
+          <li><strong>src/pages/</strong> — file-based routing; each <em>.astro</em> file becomes a route</li>
+          <li><strong>src/layouts/</strong> — shared page shells wrapping content with common markup</li>
+          <li><strong>src/components/</strong> — reusable UI pieces like Nav, Hero, and Footer</li>
+          <li><strong>src/styles/</strong> — global CSS and design tokens</li>
+          <li><strong>public/</strong> — static assets served as-is (images, favicons, fonts)</li>
+        </ul>
+      </section>
+
+      <section id="components" class="blog-section">
+        <h2>4. Components &amp; Layouts</h2>
+        <p>Astro components use a familiar syntax: a frontmatter script fence for logic, followed by HTML-like templating. Props flow in from the frontmatter, and scoped styles keep CSS from leaking.</p>
+        <h3>The Component Script</h3>
+        <ul>
+          <li>Runs at build time on the server, never shipped to the client</li>
+          <li>Fetch data, import components, and define props here</li>
+          <li>Anything between the <em>---</em> fences is pure server-side code</li>
+        </ul>
+        <h3>Layouts</h3>
+        <p>Layouts wrap pages with shared structure — the <em>&lt;head&gt;</em>, navigation, and footer. A single <code>Layout.astro</code> keeps every page consistent while the slot renders the page-specific content.</p>
+        <h3>Scoped Styles</h3>
+        <p>Every <code>&lt;style&gt;</code> block in an Astro component is scoped by default, so class names never collide across the project. Shared design tokens live in a global stylesheet.</p>
+      </section>
+
+      <section id="comparison" class="blog-section">
+        <h2>5. How It Compares</h2>
+        <p>Astro sits in a sweet spot between static site generators and full frameworks.</p>
+        <div class="roadmap">
+          <div class="phase">
+            <span class="phase-num">vs Next.js</span>
+            <h3>Lighter for content</h3>
+            <p>Next.js is powerful for app-like sites, but Astro ships far less JS for content-heavy pages.</p>
+          </div>
+          <div class="phase">
+            <span class="phase-num">vs Gatsby</span>
+            <h3>Simpler, faster builds</h3>
+            <p>No GraphQL data layer to learn — just import data and render. Builds are quick and Vite-powered.</p>
+          </div>
+          <div class="phase">
+            <span class="phase-num">vs Plain HTML</span>
+            <h3>Reusable &amp; typed</h3>
+            <p>Components, layouts, and TypeScript bring structure without giving up the speed of static HTML.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="takeaways" class="blog-section">
+        <h2>6. Takeaways</h2>
+        <p>Astro made building this site genuinely enjoyable. The static-first defaults mean great performance for free, and the islands model lets me add interactivity only where it earns its weight.</p>
+        <p class="summary-box">If you're building a portfolio, blog, or documentation site — anything content-first — Astro is hard to beat. It gets out of your way, ships fast pages, and still scales up when you need a component framework. This entire site is proof of that.</p>
+      </section>
+
+      <div class="author-card">
+        <img src="/images/profile_pics.jpg" alt="Prashant Chaturvedi" class="author-avatar" loading="lazy" />
+        <div class="author-info">
+          <h4>Prashant Chaturvedi</h4>
+          <p>Data Science &amp; Programming Enthusiast. Building things with ML, LLMs, and modern web tools.</p>
+          <div class="author-links">
+            <a href="/portfolio">Portfolio</a>
+            <a href="https://github.com/prashant">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      {relatedPosts.length > 0 && (
+        <div class="related-posts">
+          <h3>Related Posts</h3>
+          <div class="related-grid">
+            {relatedPosts.map((post) => (
+              <a href={`/blog/${post.slug}`} class="related-card">
+                <h4>{post.title}</h4>
+                <p>{post.description}</p>
+                <div class="related-meta">{formatDate(post.date!)} · {post.readingTime}</div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div class="post-footer-nav">
+        <a href="/blog">&larr; Back to Blog</a>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</Layout>
