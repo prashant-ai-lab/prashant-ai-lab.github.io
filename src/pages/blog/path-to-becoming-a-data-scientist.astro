@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Nav from "../../components/Nav.astro";
 import Footer from "../../components/Footer.astro";
+import { getRelatedPosts, formatDate } from "../../data/blog";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -11,6 +12,8 @@ const navItems = [
   { label: "YouTube", href: "/youtube" },
   { label: "Contact", href: "mailto:prashantchaturvedi2020@gmail.com" },
 ];
+
+const relatedPosts = getRelatedPosts("path-to-becoming-a-data-scientist");
 ---
 
 <Layout title="Path to Becoming a Data Scientist — Prashant Chaturvedi">
@@ -36,7 +39,7 @@ const navItems = [
         </ol>
       </div>
 
-      <section id="foundations">
+      <section id="foundations" class="blog-section">
         <h2>1. Foundations: Programming &amp; Math</h2>
         <p>Every data scientist needs a strong foundation. Start here:</p>
         <h3>Python (Non-Negotiable)</h3>
@@ -56,7 +59,7 @@ const navItems = [
         </ul>
       </section>
 
-      <section id="ml-basics">
+      <section id="ml-basics" class="blog-section">
         <h2>2. Machine Learning Basics</h2>
         <p>Understand the core paradigms of machine learning:</p>
         <h3>Supervised Learning</h3>
@@ -75,7 +78,7 @@ const navItems = [
         <p>Learn how to validate models properly: train/test splits, cross-validation, confusion matrices, precision/recall, ROC curves, and bias-variance tradeoff.</p>
       </section>
 
-      <section id="deep-learning">
+      <section id="deep-learning" class="blog-section">
         <h2>3. Deep Learning</h2>
         <p>Deep learning extends ML with neural networks capable of learning hierarchical representations.</p>
         <h3>Neural Network Fundamentals</h3>
@@ -99,7 +102,7 @@ const navItems = [
         </ul>
       </section>
 
-      <section id="llm-transformers">
+      <section id="llm-transformers" class="blog-section">
         <h2>4. LLMs &amp; Transformers</h2>
         <p>The Transformer architecture revolutionized NLP and beyond. Understanding it is essential for any modern data scientist.</p>
         <h3>The Transformer Architecture</h3>
@@ -133,7 +136,7 @@ const navItems = [
         </ul>
       </section>
 
-      <section id="mlops">
+      <section id="mlops" class="blog-section">
         <h2>5. MLOps: Git, Docker &amp; Deployment</h2>
         <p>A data scientist who can ship models is worth ten who can't. Engineering skills separate junior from senior practitioners.</p>
         <h3>Git &amp; Version Control</h3>
@@ -162,7 +165,7 @@ const navItems = [
         </ul>
       </section>
 
-      <section id="roadmap">
+      <section id="roadmap" class="blog-section">
         <h2>6. Putting It All Together</h2>
         <p>Here's a phased roadmap I recommend:</p>
         <div class="roadmap">
@@ -197,108 +200,40 @@ const navItems = [
             <p>Choose your path: NLP, Computer Vision, MLOps, or Research</p>
           </div>
         </div>
-        <p class="summary">The key is consistent practice. Build projects at each phase, contribute to open source, and never stop learning. The field evolves fast — staying curious is your biggest asset.</p>
+        <p class="summary-box">The key is consistent practice. Build projects at each phase, contribute to open source, and never stop learning. The field evolves fast — staying curious is your biggest asset.</p>
       </section>
 
+      <div class="author-card">
+        <img src="/images/profile_pics.jpg" alt="Prashant Chaturvedi" class="author-avatar" loading="lazy" />
+        <div class="author-info">
+          <h4>Prashant Chaturvedi</h4>
+          <p>Data Science &amp; Programming Enthusiast. Sharing roadmaps and insights from years of hands-on experience.</p>
+          <div class="author-links">
+            <a href="/portfolio">Portfolio</a>
+            <a href="https://github.com/prashant">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      {relatedPosts.length > 0 && (
+        <div class="related-posts">
+          <h3>Related Posts</h3>
+          <div class="related-grid">
+            {relatedPosts.map((post) => (
+              <a href={`/blog/${post.slug}`} class="related-card">
+                <h4>{post.title}</h4>
+                <p>{post.description}</p>
+                <div class="related-meta">{formatDate(post.date!)} · {post.readingTime}</div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div class="post-footer-nav">
+        <a href="/blog">&larr; Back to Blog</a>
+      </div>
     </article>
   </main>
   <Footer />
 </Layout>
-
-<style>
-  .page { padding: 120px 0 40px; min-height: 80vh; }
-  .blog-post { max-width: 720px; }
-  .back-link {
-    display: inline-block;
-    color: var(--teal);
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin-bottom: 24px;
-  }
-  .back-link:hover { opacity: 0.7; }
-  .post-title {
-    font-size: 2rem;
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 12px;
-  }
-  .post-meta {
-    display: flex;
-    gap: 16px;
-    color: var(--slate);
-    font-size: 0.85rem;
-    margin-bottom: 40px;
-  }
-  .reading-time {
-    color: var(--teal);
-    font-weight: 600;
-  }
-  .toc {
-    background: var(--gray-100);
-    border-radius: var(--radius);
-    padding: 20px 24px;
-    margin-bottom: 40px;
-    border: 1px solid var(--gray-200);
-  }
-  .toc h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--navy-light); }
-  .toc ol { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
-  .toc li { font-size: 0.85rem; }
-  .toc a { color: var(--teal); font-weight: 500; }
-  .toc a:hover { text-decoration: underline; }
-  section { margin-bottom: 48px; }
-  section h2 {
-    font-size: 1.35rem;
-    font-weight: 700;
-    margin-bottom: 16px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid var(--gray-200);
-  }
-  section h3 {
-    font-size: 1.05rem;
-    font-weight: 700;
-    margin-top: 24px;
-    margin-bottom: 8px;
-  }
-  section p { font-size: 0.92rem; line-height: 1.7; color: var(--slate); margin-bottom: 16px; }
-  section ul { margin: 0 0 16px 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px; }
-  section li { font-size: 0.92rem; line-height: 1.6; color: var(--slate); }
-  section li strong { color: var(--navy); }
-  section em { color: var(--navy-light); }
-  .roadmap { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
-  .phase {
-    background: var(--white);
-    border: 1px solid var(--gray-200);
-    border-radius: var(--radius);
-    padding: 16px 20px;
-    transition: border-color 0.2s;
-  }
-  .phase:hover { border-color: var(--teal); }
-  .phase-num {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--teal);
-    background: rgba(20,184,166,0.08);
-    padding: 2px 8px;
-    border-radius: 4px;
-    margin-bottom: 6px;
-  }
-  .phase h3 { font-size: 1rem; font-weight: 700; margin: 0 0 4px 0; }
-  .phase p { font-size: 0.85rem; color: var(--slate); margin: 0; }
-  .summary {
-    font-size: 0.92rem;
-    line-height: 1.7;
-    color: var(--slate);
-    background: linear-gradient(135deg, #f0fdfa, #fff);
-    border: 1px solid #99f6e4;
-    border-radius: var(--radius);
-    padding: 16px 20px;
-    margin-top: 24px;
-  }
-
-  @media (max-width: 640px) {
-    .post-title { font-size: 1.5rem; }
-  }
-</style>
