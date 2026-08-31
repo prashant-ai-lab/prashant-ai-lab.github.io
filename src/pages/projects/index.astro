@@ -16,6 +16,7 @@ const projects = [
   {
     title: "Multi-Modal Review Moderation Platform",
     org: "G2",
+    order: 7,
     desc: "Built a scalable review moderation system combining <span class='hl-ai'>ML models</span>, rule engines, and agent workflows. Integrated <span class='hl-ai'>computer vision</span> for screenshot validation to verify real product usage.",
     tech: ["Python", "FastAPI", "Kubernetes", "ArgoCD", "Docker"],
     impact: "Increased moderation automation from 30% to 70%",
@@ -23,6 +24,7 @@ const projects = [
   {
     title: "Enterprise RAG Pipeline",
     org: "G2",
+    order: 6,
     desc: "Designed a <span class='hl-ai'>RAG pipeline</span> using <span class='hl-tech'>Milvus</span> for vector storage with embeddings, semantic retrieval, reranking, and optimized chunking strategies.",
     tech: ["Python", "Milvus", "LangChain", "HuggingFace", "FastAPI"],
     impact: "Improved enterprise search relevance and response quality",
@@ -30,6 +32,7 @@ const projects = [
   {
     title: "Image Moderation & Policy Detection",
     org: "G2",
+    order: 5,
     desc: "Implemented image moderation pipelines using <span class='hl-ai'>computer vision</span> models and product-aware validation to detect policy violations in user-submitted content.",
     tech: ["Python", "PyTorch", "OpenCV", "Kubernetes"],
     impact: "Reduced fraudulent submissions in moderation workflows",
@@ -37,6 +40,7 @@ const projects = [
   {
     title: "Conversational AI for Pharma",
     org: "Tiger Analytics",
+    order: 4,
     desc: "Developed a <span class='hl-ai'>conversational AI</span> assistant for pharmaceutical experts, enabling efficient knowledge retrieval and domain-specific question answering using <span class='hl-tech'>Qdrant</span>-based <span class='hl-ai'>RAG</span>.",
     tech: ["Python", "Qdrant", "LangChain", "LLMs", "FastAPI"],
     impact: "Enabled domain-specific QA for pharmaceutical research",
@@ -44,6 +48,7 @@ const projects = [
   {
     title: "LLM-Powered GenAI Workflows",
     org: "Tiger Analytics",
+    order: 3,
     desc: "Designed <span class='hl-ai'>LLM-powered</span> workflows with context-aware retrieval and structured outputs for enterprise-scale <span class='hl-ai'>GenAI</span> applications.",
     tech: ["Python", "LangChain", "LLMs", "REST APIs", "Docker"],
     impact: "Delivered structured GenAI solutions at enterprise scale",
@@ -51,6 +56,7 @@ const projects = [
   {
     title: "Cancer Stage Prediction Pipeline",
     org: "Tiger Analytics",
+    order: 2,
     desc: "Led an end-to-end <span class='hl-ai'>ML pipeline</span> for cancer stage prediction using healthcare claims data with feature engineering and model selection.",
     tech: ["Python", "XGBoost", "Scikit-learn", "PySpark"],
     impact: "Achieved AUC of 85%",
@@ -58,6 +64,7 @@ const projects = [
   {
     title: "Automated Question Generation (NLP)",
     org: "Tata Consultancy Services",
+    order: 1,
     desc: "Built an automated question generation system using <span class='hl-ai'>NLP</span> and deep learning for educational content creation. Applied POS tagging, embeddings, and fuzzy matching.",
     tech: ["Python", "NLP", "Deep Learning", "TensorFlow"],
     impact: "Reduced manual effort in educational content workflows",
@@ -65,6 +72,7 @@ const projects = [
   {
     title: "Vehicle & Person Detection",
     org: "Codenscious",
+    order: 0,
     desc: "Managed a team under a vehicle and person detection project using <span class='hl-ai'>computer vision</span>, working directly under the CEO and delivering client software.",
     tech: ["Python", "Computer Vision", "Deep Learning"],
     impact: "Delivered client software with good profit margins",
@@ -72,6 +80,7 @@ const projects = [
   {
     title: "Diabetes Classification",
     org: "Codenscious",
+    order: -1,
     desc: "Built a diabetes classification project spanning backend, frontend, classical AI, and <span class='hl-ai'>deep learning</span> with hands-on application of boosting algorithms.",
     tech: ["Python", "Scikit-learn", "Flask", "HTML/CSS"],
     impact: "Gained hands-on experience with production ML deployment",
@@ -79,6 +88,7 @@ const projects = [
   {
     title: "git-mcp",
     org: "Personal",
+    order: 8,
     desc: "An <span class='hl-tech'>MCP server</span> that lets AI agents inspect and interact with local Git repositories via <span class='hl-ai'>LangGraph</span>. Includes an LLM intent classifier, permission/safety gate, and Opik observability.",
     tech: ["Python", "MCP", "LangGraph", "LangChain", "Opik"],
     impact: "Three-tier agent: MCP Inspector, LangGraph agent, and guarded agent with safety gate",
@@ -94,9 +104,22 @@ const projects = [
       <h1 class="page-title">Projects</h1>
       <p class="page-subtitle">Real-world ML & AI systems I've built across companies</p>
 
+      <div class="controls">
+        <div class="sort-group">
+          <button class="sort-btn active" data-sort="desc">Latest</button>
+          <button class="sort-btn" data-sort="asc">Oldest</button>
+        </div>
+        <div class="filter-group">
+          <button class="filter-btn active" data-org="all">All</button>
+          {[...new Set(projects.map((p) => p.org))].map((org) => (
+            <button class="filter-btn" data-org={org}>{org}</button>
+          ))}
+        </div>
+      </div>
+
       <div class="projects-grid">
         {projects.map((p) => (
-          <article class="project-card">
+          <article class="project-card" data-org={p.org} data-order={p.order}>
             <div class="card-header">
               <span class="card-org">{p.org}</span>
             </div>
@@ -117,9 +140,100 @@ const projects = [
   <Footer />
 </Layout>
 
+<script>
+  const grid = document.querySelector('.projects-grid')!;
+  const sortBtns = document.querySelectorAll<HTMLButtonElement>('.sort-btn');
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  let activeOrg = 'all';
+  let sortOrder: 'asc' | 'desc' = 'desc';
+
+  function render() {
+    const cards = Array.from(grid.querySelectorAll<HTMLElement>('.project-card'));
+    const visible = cards.filter((c) => {
+      if (activeOrg === 'all') return true;
+      return c.dataset.org === activeOrg;
+    });
+    visible.sort((a, b) => {
+      const oa = parseInt(a.dataset.order ?? '0', 10);
+      const ob = parseInt(b.dataset.order ?? '0', 10);
+      return sortOrder === 'desc' ? ob - oa : oa - ob;
+    });
+    cards.forEach((c) => c.classList.add('hidden'));
+    visible.forEach((c) => {
+      c.classList.remove('hidden');
+      grid.appendChild(c);
+    });
+  }
+
+  sortBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      sortBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      sortOrder = btn.dataset.sort as 'asc' | 'desc';
+      render();
+    });
+  });
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeOrg = btn.dataset.org!;
+      render();
+    });
+  });
+</script>
+
 <style>
   .page-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 8px; }
-  .page-subtitle { color: var(--slate); font-size: 1.05rem; margin-bottom: 48px; }
+  .page-subtitle { color: var(--slate); font-size: 1.05rem; margin-bottom: 32px; }
+
+  .controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 28px;
+    padding: 14px 18px;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+  }
+  .sort-group, .filter-group {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+  .sort-group {
+    background: var(--gray-100);
+    border-radius: 8px;
+    padding: 3px;
+  }
+  .sort-btn, .filter-btn {
+    border: none;
+    background: transparent;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--navy-light);
+    transition: all 0.2s;
+  }
+  .sort-btn:hover, .filter-btn:hover {
+    color: var(--teal);
+  }
+  .sort-btn.active {
+    background: var(--white);
+    color: var(--teal);
+    box-shadow: var(--shadow-sm);
+  }
+  .filter-btn.active {
+    background: rgba(20,184,166,0.1);
+    color: var(--teal);
+  }
+  .project-card.hidden { display: none; }
 
   .projects-grid {
     display: grid;
@@ -191,6 +305,7 @@ const projects = [
 
   @media (max-width: 768px) {
     .projects-grid { grid-template-columns: 1fr; }
+    .controls { flex-direction: column; align-items: flex-start; }
   }
   @media (max-width: 640px) {
     .page-title { font-size: 1.75rem; }
