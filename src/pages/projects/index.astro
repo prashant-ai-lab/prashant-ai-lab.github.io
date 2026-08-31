@@ -76,6 +76,14 @@ const projects = [
     tech: ["Python", "Scikit-learn", "Flask", "HTML/CSS"],
     impact: "Gained hands-on experience with production ML deployment",
   },
+  {
+    title: "git-mcp",
+    org: "Personal",
+    desc: "An <span class='hl-tech'>MCP server</span> that lets AI agents inspect and interact with local Git repositories via <span class='hl-ai'>LangGraph</span>. Includes an LLM intent classifier, permission/safety gate, and Opik observability.",
+    tech: ["Python", "MCP", "LangGraph", "LangChain", "Opik"],
+    impact: "Three-tier agent: MCP Inspector, LangGraph agent, and guarded agent with safety gate",
+    link: "https://github.com/prashant-ai-lab/git-mcp",
+  },
 ];
 ---
 
@@ -92,7 +100,7 @@ const projects = [
             <div class="card-header">
               <span class="card-org">{p.org}</span>
             </div>
-            <h2 class="card-title" set:html={p.title}></h2>
+            <h2 class="card-title">{p.link ? <a href={p.link} target="_blank" rel="noopener" set:html={p.title}></a> : <span set:html={p.title}></span>}</h2>
             <p class="card-desc" set:html={p.desc}></p>
             <div class="card-tech">
               {p.tech.map((t) => <span class="tech-tag">{t}</span>)}
@@ -153,6 +161,8 @@ const projects = [
   }
 
   .card-title { font-size: 1.1rem; font-weight: 700; line-height: 1.3; }
+  .card-title a { color: inherit; text-decoration: none; }
+  .card-title a:hover { color: var(--teal); }
   .card-desc { font-size: 0.85rem; color: var(--slate); line-height: 1.6; flex: 1; }
 
   .card-tech { display: flex; gap: 6px; flex-wrap: wrap; }
