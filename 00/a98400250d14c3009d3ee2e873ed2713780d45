@@ -1,0 +1,23 @@
+src/pages/projects/index.astro
+  s_2eb6beeb216e85::t_2996a125c5a1a8 308
+  s_2eb6beeb216e85::t_f0f43e271c57d8 107-119,122
+  s_2eb6beeb216e85::t_7267ec83ba6f49 189-236
+  s_2eb6beeb216e85::t_cf3e226be46960 143-186
+  s_2eb6beeb216e85::t_7c7c6d18c66234 19,27,35,43,51,59,67,75,83,91
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "00a98400250d14c3009d3ee2e873ed2713780d45",
+  "prompts": {},
+  "sessions": {
+    "s_2eb6beeb216e85": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fa7ec8b84ffei7rYbjswzROsJP",
+        "model": "big-pickle"
+      },
+      "human_author": "Prashant <prashantchaturvedi2020@gmail.com>"
+    }
+  }
+}
