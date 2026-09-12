@@ -1,0 +1,19 @@
+package-lock.json
+  s_2df11ee9943b4a::t_0e2872194f8de4 659-670,681-691
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "6269023505285a98a808d21c1538896be6484986",
+  "prompts": {},
+  "sessions": {
+    "s_2df11ee9943b4a": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f69d9e476ffevz7WjhqW3hS0js",
+        "model": "big-pickle"
+      },
+      "human_author": "Prashant <prashantchaturvedi2020@gmail.com>"
+    }
+  }
+}
