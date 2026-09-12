@@ -1,0 +1,100 @@
+src/content/blog/path-to-becoming-a-data-scientist.md
+  s_9a6011cf4e1dfc::t_824e1e08cd0a59 11-12
+  s_9a6011cf4e1dfc::t_067e3e12b5c76f 1-10,13-172
+admin-server/src/markdown.js
+  s_9a6011cf4e1dfc::t_212d1543eb097f 1-51
+admin-server/public/admin/css/admin.css
+  s_9a6011cf4e1dfc::t_e735d2640433bb 1-116
+README.md
+  s_9a6011cf4e1dfc::t_1aa1dcb851abed 1,4,6,8-65,67-69,72,74-81,83-172
+admin-server/src/routes/uploads.js
+  s_9a6011cf4e1dfc::t_56539e5efed9e0 1-22
+admin-server/public/admin/blog-preview.css
+  s_9a6011cf4e1dfc::t_a2aeb3b3795c2d 1-20
+src/utils/blog.ts
+  s_9a6011cf4e1dfc::t_c87ac246be9bbf 6-8,10-12,54-55,61-62,64-69
+  s_9a6011cf4e1dfc::t_6a134a2cb98296 92
+  s_9a6011cf4e1dfc::t_e8afee8172da1c 3,5,15-20,22-25,28-41,44,46-48,53,56,58-60,63,71,74-81,90
+  s_9a6011cf4e1dfc::t_ed55b8a09daff7 1-2,4,9,45,57,70,72-73,83-89,91
+admin-server/src/config.js
+  s_9a6011cf4e1dfc::t_95b3edf78d07a5 1-42
+src/content/blog/getting-started-with-machine-learning.md
+  s_9a6011cf4e1dfc::t_969bb6798e898d 1-9
+astro.config.mjs
+  s_9a6011cf4e1dfc::t_ba5397bc5acc74 4-29,41
+  s_9a6011cf4e1dfc::t_06282906c1aa36 2,42-46
+  s_9a6011cf4e1dfc::t_de44a3976cd3d3 3
+src/pages/blog/[slug].astro
+  s_9a6011cf4e1dfc::t_15d8fd7879bcd3 1-5,7-24,28-61,63-79,81-94
+  s_9a6011cf4e1dfc::t_a56dcfcadc4d8a 6,25-27,62,80
+admin-server/public/admin/index.html
+  s_9a6011cf4e1dfc::t_9792711d4c2901 1-57
+admin-server/server.js
+  s_9a6011cf4e1dfc::t_7081eba868b010 1-76
+admin-server/src/auth.js
+  s_9a6011cf4e1dfc::t_8707390031f9b5 3,6-8,10
+  s_9a6011cf4e1dfc::t_9931e2ea133f7c 1-2,4-5,9,11-46
+admin-server/src/github.js
+  s_9a6011cf4e1dfc::t_a037ba83bee88a 3-12,16-17,20,26,35,38,48,55,68,72,83,85-86
+  s_9a6011cf4e1dfc::t_973478c4052536 28-29
+  s_9a6011cf4e1dfc::t_5be27a5c5a862c 1-2,13-15,18-19,21-25,27,30-34,36-37,39-47,49-54,56-67,69-71,73-82,84,87-96
+src/styles/global.css
+  s_9a6011cf4e1dfc::t_7c1c54224088a7 274-365
+admin-server/src/routes/auth.js
+  s_9a6011cf4e1dfc::t_eabf05f1165081 1-56
+admin-server/src/routes/posts.js
+  s_9a6011cf4e1dfc::t_a6fadbac4be8ce 1-141
+admin-server/public/admin/js/app.js
+  s_9a6011cf4e1dfc::t_d08e0ab61e336a 1-133
+admin-server/public/admin/js/editor.js
+  s_9a6011cf4e1dfc::t_b9e1938ab9504f 1-209
+src/content/blog/building-with-astro.md
+  s_9a6011cf4e1dfc::t_5a97bdfd5e3bc5 11-12
+  s_9a6011cf4e1dfc::t_4f520e23598f23 19
+  s_9a6011cf4e1dfc::t_f0e956dd4219d7 1-10,13-18,20-87
+admin-server/public/admin/login.html
+  s_9a6011cf4e1dfc::t_04d2320c2081b4 1-28
+tsconfig.json
+  s_9a6011cf4e1dfc::t_d98a578575eb65 4-5
+src/content/blog/nlp-feature-engineering.md
+  s_9a6011cf4e1dfc::t_8d2710f18d0962 1-9
+src/content.config.ts
+  s_9a6011cf4e1dfc::t_3ed544f3fed895 1-20
+admin-server/package.json
+  s_9a6011cf4e1dfc::t_0194bc9a067bbb 1-18
+admin-server/public/admin/editor.html
+  s_9a6011cf4e1dfc::t_79a3bd665885f7 1-116
+admin-server/.env.example
+  s_9a6011cf4e1dfc::t_8f80647c5cc9ff 1-41
+.gitignore
+  s_9a6011cf4e1dfc::t_0f0af273f54e54 5-8
+admin-server/public/admin/css/editor.css
+  s_9a6011cf4e1dfc::t_b8f7ca4e611e92 1-57
+src/pages/rss.xml.ts
+  s_9a6011cf4e1dfc::t_fa160db4831278 2,6-7,10,14-18,38
+admin-server/public/admin/posts.html
+  s_9a6011cf4e1dfc::t_8307d0ac51bca0 1-40
+src/pages/blog/index.astro
+  s_9a6011cf4e1dfc::t_4a6354460a04cb 2,16-21,32-38,40-49,54
+  s_9a6011cf4e1dfc::t_feb966eb798ee1 6,39
+admin-server/public/admin/js/api.js
+  s_9a6011cf4e1dfc::t_73e09488bec8e8 1-55
+admin-server/package-lock.json
+  s_9a6011cf4e1dfc::t_6aac179e8deea3 1-1217
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "947f7820136d04f6be78c24cd83396e9bc6cb59f",
+  "prompts": {},
+  "sessions": {
+    "s_9a6011cf4e1dfc": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f6b88b3abffemcLWimZxr26OoG",
+        "model": "big-pickle"
+      },
+      "human_author": "Prashant <prashantchaturvedi2020@gmail.com>"
+    }
+  }
+}
