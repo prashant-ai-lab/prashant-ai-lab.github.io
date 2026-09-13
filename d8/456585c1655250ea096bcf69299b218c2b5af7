@@ -1,0 +1,17 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "d8456585c1655250ea096bcf69299b218c2b5af7",
+  "prompts": {},
+  "sessions": {
+    "s_9a6011cf4e1dfc": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f6b88b3abffemcLWimZxr26OoG",
+        "model": "big-pickle"
+      },
+      "human_author": "Prashant <prashantchaturvedi2020@gmail.com>"
+    }
+  }
+}
